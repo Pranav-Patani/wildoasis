@@ -1,8 +1,9 @@
-import { useState } from "react";
+import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   return (
     <>
+      <GlobalStyles />
       <h1>Wild Oasis</h1>
     </>
   );
