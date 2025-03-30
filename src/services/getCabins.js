@@ -11,7 +11,7 @@ export async function getCabins() {
   return data;
 }
 
-export async function createCabins(newCabin) {
+export async function createCabin(newCabin) {
   const { data, error } = await supabase
     .from("cabins")
     .insert([newCabin])
