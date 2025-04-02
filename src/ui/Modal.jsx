@@ -74,19 +74,20 @@ function Open({ children, opens: opensWindowName }) {
   return cloneElement(children, { onClick: () => open(opensWindowName) });
 }
 
-function Window({ children, name }) {
+function Window({ children, name, openPermanently = false }) {
   const { openName, close } = useContext(ModalContext);
   const ref = useOutsideClick(close);
 
-  if (name !== openName) return null;
+  if (name !== openName && !openPermanently) return null;
 
   return createPortal(
     <Overlay>
       <StyledModal ref={ref}>
-        <Button onClick={close}>
-          <HiXMark />
-        </Button>
-
+        {!openPermanently && (
+          <Button onClick={close}>
+            <HiXMark />
+          </Button>
+        )}
         <div>{cloneElement(children, { onCloseModal: close })}</div>
       </StyledModal>
     </Overlay>,
