@@ -18,6 +18,7 @@ const StyledNavLink = styled(NavLink)`
   &:link,
   &:visited {
     display: flex;
+    /* display: none; */
     align-items: center;
     gap: 1.2rem;
 
@@ -53,42 +54,61 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-function MainNav() {
+const Nav = styled.nav`
+  grid-row: 2;
+`;
+
+function MainNav({ handleSidebar }) {
   return (
-    <nav>
+    <Nav>
       <NavList>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink
+            onClick={() => handleSidebar((isOpen) => !isOpen)}
+            to="/dashboard"
+          >
             <HiOutlineHome />
             <span>Home</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/bookings">
+          <StyledNavLink
+            onClick={() => handleSidebar((isOpen) => !isOpen)}
+            to="/bookings"
+          >
             <HiOutlineCalendarDays />
             <span>Bookings</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/cabins">
+          <StyledNavLink
+            onClick={() => handleSidebar((isOpen) => !isOpen)}
+            to="/cabins"
+          >
             <HiOutlineHomeModern />
             <span>Cabins</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/users">
+          <StyledNavLink
+            onClick={() => handleSidebar((isOpen) => !isOpen)}
+            to="/users"
+          >
             <HiOutlineUsers />
             <span>Users</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/settings">
+          <StyledNavLink
+            onClick={() => handleSidebar((isOpen) => !isOpen)}
+            to="/settings"
+          >
             <HiOutlineCog6Tooth />
             <span>Settings</span>
           </StyledNavLink>
         </li>
       </NavList>
-    </nav>
+    </Nav>
   );
 }
 
