@@ -5,6 +5,8 @@ import Logo from "./Logo";
 import MainNav from "./MainNav";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi2";
 
+import Uploader from "../data/Uploader";
+
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
   padding: 3.2rem 2.4rem;
@@ -55,6 +57,7 @@ function Sidebar() {
     <StyledSidebar isOpen={isOpen}>
       <Logo />
       <MainNav handleSidebar={setIsOpen} />
+      <Uploader />
       <ShowSidebar
         onClick={() => setIsOpen((isOpen) => !isOpen)}
         style={{ gridRow: `${1}/${-1}` }}
